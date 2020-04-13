@@ -15,7 +15,7 @@ export default function Deliverymen() {
 	const [page, setPage] = useState(1);
 
 	async function loadDeliverymen() {
-		const response = await api.get('/deliverymen', {
+		const response = await api.get('/deliveryman', {
 			params: {
 				page,
 			},

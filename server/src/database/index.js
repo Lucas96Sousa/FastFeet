@@ -1,8 +1,8 @@
 import Sequelize from 'sequelize';
 import mongoose from 'mongoose';
+import 'dotenv/config';
 
 import databaseConfig from '../config/database';
-import mongoConfig from '../config/mongo';
 
 // Importar models e colocar no array
 import User from '../app/models/User';
@@ -28,14 +28,11 @@ class Database {
 	}
 
 	mongo() {
-		this.mongoConnection = mongoose.connect(
-			`mongodb://${mongoConfig.username}:${mongoConfig.password}@${mongoConfig.host}:${mongoConfig.port}/${mongoConfig.database}`,
-			{
-				useNewUrlParser: true,
-				useFindAndModify: true,
-				useUnifiedTopology: true,
-			}
-		);
+		this.mongoConnection = mongoose.connect(process.env.MONGO_URL, {
+			useNewUrlParser: true,
+			useFindAndModify: true,
+			useUnifiedTopology: true,
+		});
 	}
 }
 

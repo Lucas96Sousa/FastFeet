@@ -6,7 +6,7 @@ faker.locale = 'pt_BR';
 module.exports = {
 	up: queryInterface => {
 		return queryInterface.bulkInsert(
-			'deliverymen',
+			'deliveryman',
 			[
 				{
 					name: faker.name.findName(),

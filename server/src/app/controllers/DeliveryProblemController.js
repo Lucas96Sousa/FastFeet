@@ -56,41 +56,6 @@ class DeliveryProblemController {
 			.skip((page - 1) * 5)
 			.limit(5);
 
-		/* const filterDeliveryId = [
-			...new Set(deliveryProblems.map(delivery => delivery.delivery_id)),
-		];
-
-		const deliveries = await Promise.all(
-			filterDeliveryId.map(async delivery_id =>
-				Delivery.findByPk(delivery_id, {
-					attributes: [
-						'id',
-						'product',
-						'start_date',
-						'end_date',
-						'canceled_at',
-					],
-					include: [
-						{
-							model: Recipient,
-							as: 'recipient',
-							attributes: ['id', 'name'],
-						},
-						{
-							model: Deliveryman,
-							as: 'deliveryman',
-							attributes: ['id', 'name'],
-						},
-						{
-							model: File,
-							as: 'signature',
-							attributes: ['id', 'url', 'path'],
-						},
-					],
-				})
-			)
-		); */
-
 		return res.json(deliveryProblems);
 	}
 
